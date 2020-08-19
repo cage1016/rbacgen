@@ -1,0 +1,3 @@
+# rbacgen
+> rbac sql generator
+
