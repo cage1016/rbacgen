@@ -1,0 +1,32 @@
+actions:
+  R: read
+  W: write
+  E: edit
+  D: delete
+resources:
+  - rbac
+  - organization
+  - invitation
+  - report
+  - store
+roles:
+  owner:
+    - rbac:RWED
+    - organization:RWED
+    - invitation:R
+    - report:R
+    - store:RWED
+  editor:
+    - rbac:RWE
+    - organization:RWE
+    - invitation:R
+    - report:R
+    - store:RWE
+  viewer:
+    - rbac:R
+    - organization:R
+    - invitation:R
+    - report:R
+    - store:R
+  reporter:
+    - report:R

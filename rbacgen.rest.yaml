@@ -1,0 +1,23 @@
+actions:
+  R: GET
+  C: POST
+  U: PUT
+  D: DELETE
+resources:
+  - /api/([^\\/]+)/authz/roles
+  - /api/([^\\/]+)/add/sum
+  - /api/([^\\/]+)/add/concat
+  - /api/([^\\/]+)/foo/foo
+roles:
+  owner:
+    - /api/([^\\/]+)/authz/roles:CRUD
+    - /api/([^\\/]+)/add/sum:C
+    - /api/([^\\/]+)/add/concat:C
+    - /api/([^\\/]+)/foo/foo:C
+  editor:
+    - /api/([^\\/]+)/authz/roles:RCU
+    - /api/([^\\/]+)/add/sum:C
+    - /api/([^\\/]+)/add/concat:C
+    - /api/([^\\/]+)/foo/foo:C
+  viewer:
+    - /api/([^\\/]+)/authz/roles:R

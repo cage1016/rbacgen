@@ -1,0 +1,47 @@
+actions:
+  R: GET
+  C: POST
+  U: PUT
+  D: DELETE
+resources:
+  - /api/([^\\/]+)/authn
+  - /api/([^\\/]+)/authz/roles
+  - /api/([^\\/]+)/authz/stores/([^\\/]?)
+  - /api/([^\\/]+)/invite
+  - /api/([^\\/]+)/organization/organizations
+  - /api/([^\\/]+)/organization/organizations/([^\\/]?)
+  - /api/([^\\/]+)/report
+  - /api/([^\\/]+)/store/stores
+  - /api/([^\\/]+)/store/stores/([^\\/]?)
+roles:
+  owner:
+    - /api/([^\\/]+)/authn:CRUD
+    - /api/([^\\/]+)/authz/roles:CRUD
+    - /api/([^\\/]+)/authz/stores/([^\\/]?):CRUD
+    - /api/([^\\/]+)/invite:C
+    - /api/([^\\/]+)/organization/organizations:CRUD
+    - /api/([^\\/]+)/organization/organizations/([^\\/]?):CRUD
+    - /api/([^\\/]+)/report:R
+    - /api/([^\\/]+)/store/stores:CRUD
+    - /api/([^\\/]+)/store/stores/([^\\/]?):CRUD
+  editor:
+    - /api/([^\\/]+)/authn:CRU
+    - /api/([^\\/]+)/authz/roles:CRU
+    - /api/([^\\/]+)/authz/stores/([^\\/]?):CRU
+    - /api/([^\\/]+)/invite:C
+    - /api/([^\\/]+)/organization/organizations:CRU
+    - /api/([^\\/]+)/organization/organizations/([^\\/]?):CRU
+    - /api/([^\\/]+)/report:R
+    - /api/([^\\/]+)/store/stores:CRU
+    - /api/([^\\/]+)/store/stores/([^\\/]?):CRU
+  viewer:
+    - /api/([^\\/]+)/authn:R
+    - /api/([^\\/]+)/authz/roles:R
+    - /api/([^\\/]+)/authz/stores/([^\\/]?):R
+    - /api/([^\\/]+)/organization/organizations:R
+    - /api/([^\\/]+)/organization/organizations/([^\\/]?):R
+    - /api/([^\\/]+)/report:R
+    - /api/([^\\/]+)/store/stores:R
+    - /api/([^\\/]+)/store/stores/([^\\/]?):R
+  reporter:
+    - /api/([^\\/]+)/report:R
